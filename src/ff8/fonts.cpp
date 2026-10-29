@@ -1930,7 +1930,8 @@ ff8_graphics_object *ff8_load_icons_fallback_to_low_res(int a1, int a2, ff8_crea
     ff8_font *icons = *ff8_externals.icons;
 
     // Error on loading highres/iconfl00.tex
-    if (icons->graphics_object48 == nullptr || icons->graphics_object4C == nullptr || icons->graphics_object50 == nullptr || icons->graphics_object54 == nullptr) {
+    // The caller stores ret into graphics_object54 only after this call returns
+    if (icons->graphics_object48 == nullptr || icons->graphics_object4C == nullptr || icons->graphics_object50 == nullptr || ret == nullptr) {
         // Disable highres icons
         fallback_to_low_res = true;
 
